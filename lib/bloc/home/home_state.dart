@@ -10,13 +10,23 @@ abstract class HomeState extends Equatable {
 class HomeLoading extends HomeState {}
 
 class HomeLoaded extends HomeState {
+  final Map<String, dynamic> user;
+  final String currentHostelId;
+
+  const HomeLoaded(this.user, {this.currentHostelId = ''});
+
+  @override
+  List<Object> get props => [user, currentHostelId];
+}
+class HomeLoadedAdmin extends HomeState{
   final List<Map<String, dynamic>> users;
   final String currentHostelId; // Add this field
 
-  HomeLoaded(this.users, {this.currentHostelId = ''});
+  const HomeLoadedAdmin(this.users, {this.currentHostelId = ''});
 
   @override
   List<Object> get props => [users, currentHostelId];
+
 }
 
 class HomeError extends HomeState {

@@ -9,3 +9,7 @@ abstract class HomeEvent extends Equatable {
 
 class LoadUsers extends HomeEvent {}
 
+class LoadUsersForAdmin extends HomeEvent{}
+
+
+

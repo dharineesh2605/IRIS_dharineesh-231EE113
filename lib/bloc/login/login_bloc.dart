@@ -18,12 +18,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         if (event.role == "user" && snapshot.data()?["Role"] == "user") {
           emit(LoginUserSuccess(email: event.email, password: event.password, role: event.role));
         }
-        if(event.role == "admin" && snapshot.data()?["Role"] == "admin") {
+        else if(event.role == "admin" && snapshot.data()?["Role"] == "admin") {
       emit(LoginAdminSuccess(email: event.email, password: event.password, role: event.role));
-      } else {
-          emit(LoginFailure(email: event.email, password: event.password, role: event.role, error: "invalid credentials "));
-        }
-      } catch (error) {
+      }// else {
+         // emit(LoginFailure(email: event.email, password: event.password, role: event.role, error: "invalid credentials "));
+
+      }
+      catch (error) {
         emit(LoginFailure(email: event.email, password: event.password, role: event.role, error: error.toString()));
       }
     });

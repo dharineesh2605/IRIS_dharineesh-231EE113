@@ -38,7 +38,7 @@ class _HomeState extends State<Adminhome> {
         ],
       ),
       body: BlocProvider(
-        create: (context) => HomeBloc()..add(LoadUsers()),
+        create: (context) => HomeBloc()..add(LoadUsersForAdmin()),
         child: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoading) {
@@ -46,7 +46,7 @@ class _HomeState extends State<Adminhome> {
               return const Center(child: CircularProgressIndicator());
             } else if (state is HomeError) {
               return Center(child: Text(state.message));
-            } else if (state is HomeLoaded) {
+            } else if (state is HomeLoadedAdmin) {
               return Container(child:
               Column(
                 children: [
