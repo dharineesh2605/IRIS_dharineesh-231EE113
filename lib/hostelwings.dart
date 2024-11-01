@@ -35,11 +35,8 @@ class _HostelWingsState extends State<HostelWings> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => BlocProvider(
-                  create: (context) => AllotmentBloc(),
-                  child: WingRooms(wing: wing, hostelId: widget.hostelId),
-                )),
-              );
+                MaterialPageRoute(builder: (context) => WingRooms(wing: wing, hostelId: widget.hostelId),
+                ));
             },
             child: Text('Register'),
           ),

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         "/allotment": (context) => Allotment(),
         "/changehostel": (context) => ChangeHostel(),
         "/requests": (context) => Requests(),
-        '/hostelwings': (context) => HostelWings(hostelId: ModalRoute.of(context)?.settings.arguments as String),
+        //'/hostelwings': (context) => HostelWings(hostelId:),
       },
     );
   }

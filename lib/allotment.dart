@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iris_app/bloc/allotment/allotment_bloc.dart';
 import 'package:iris_app/bloc/allotment/allotment_events.dart';
 import 'package:iris_app/bloc/allotment/allotment_state.dart';
+import 'package:iris_app/hostelwings.dart';
 
 class Allotment extends StatelessWidget {
   @override
@@ -43,7 +44,7 @@ class Allotment extends StatelessWidget {
                     trailing: ElevatedButton(
                       onPressed: () {
                         if (hostel['id'] != null && hostel['rooms'] > 0) {
-                          Navigator.pushNamed(context, '/hostelwings', arguments: hostel['id']);
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HostelWings(hostelId: hostel['id'])));
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Please select a valid hostel with available rooms')),
