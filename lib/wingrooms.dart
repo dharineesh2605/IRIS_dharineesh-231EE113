@@ -57,7 +57,7 @@ class WingRoomsState extends State<WingRooms> {
     await FirebaseFirestore.instance.collection('hostels').doc(widget.hostelId).update({
       '${widget.wing}.$room': false,
       'wings.${widget.wing}': int.parse(wingData[widget.wing].toString()) - 1,
-      'rooms': int.parse(rooms.toString()) - 1,
+      'rooms': rooms - 1,
     });
 
 
